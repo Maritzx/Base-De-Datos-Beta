@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useData } from '../hooks/useData.js';
 
 const getDefaultValue = (field) => {
@@ -196,10 +195,3 @@ export default function RecordForm({ entity, initialValues, onCancel, onSubmit }
     </form>
   );
 }
-
-RecordForm.propTypes = {
-  entity: PropTypes.object.isRequired,
-  initialValues: PropTypes.object,
-  onCancel: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
-};

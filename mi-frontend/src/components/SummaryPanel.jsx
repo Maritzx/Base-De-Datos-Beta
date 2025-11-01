@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 import { useData } from '../hooks/useData.js';
 
@@ -63,8 +62,3 @@ export default function SummaryPanel({ metadata, entities }) {
     </aside>
   );
 }
-
-SummaryPanel.propTypes = {
-  metadata: PropTypes.object.isRequired,
-  entities: PropTypes.array.isRequired
-};

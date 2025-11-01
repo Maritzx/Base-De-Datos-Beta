@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useData } from '../hooks/useData.js';
 import EntityTable from './EntityTable.jsx';
 import RecordForm from './RecordForm.jsx';
@@ -93,7 +92,3 @@ export default function EntityDetail({ entity }) {
     </section>
   );
 }
-
-EntityDetail.propTypes = {
-  entity: PropTypes.object.isRequired
-};

@@ -92,4 +92,4 @@ export function DataProvider({ children }) {
   );
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
-  }
+}

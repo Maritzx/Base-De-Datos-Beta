@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const formatValue = (value) => {
   if (Array.isArray(value)) {
     return value.join(', ');
@@ -54,10 +52,3 @@ export default function EntityTable({ entity, records, onDelete, onEdit }) {
     </div>
   );
 }
-
-EntityTable.propTypes = {
-  entity: PropTypes.object.isRequired,
-  records: PropTypes.array.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onEdit: PropTypes.func.isRequired
-};

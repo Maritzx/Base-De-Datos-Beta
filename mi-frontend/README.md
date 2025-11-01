@@ -56,3 +56,4 @@ npm run preview
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia MIT. Puedes adaptarlo libremente para operaciones comerciales o de investigación, respetando las regulaciones locales vigentes.
+

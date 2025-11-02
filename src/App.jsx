@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { cultivationEntities, databaseMetadata, entityMap } from './data/schema.js';
+import logo from './assets/logo.svg';
 import SummaryPanel from './components/SummaryPanel.jsx';
 import EntityDetail from './components/EntityDetail.jsx';
 import './styles/app.css';
@@ -27,11 +28,14 @@ export default function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <div>
-          <h1>Base de datos integral Cannabis sativa L.</h1>
-          <p>
-            {databaseMetadata.description}
-          </p>
+        <div className="app__brand">
+          <img className="app__logo" src={logo} alt="Logotipo del sistema de cultivo" />
+          <div className="app__identity">
+            <h1>Base de datos integral Cannabis sativa L.</h1>
+            <p>
+              {databaseMetadata.description}
+            </p>
+          </div>
         </div>
         <div className="app__search">
           <input

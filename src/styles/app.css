@@ -2,51 +2,87 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: #0b172a;
+  color: var(--color-ink);
 }
 
 .app__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2.5rem 3rem 1.5rem;
-  background: linear-gradient(135deg, #0a3d62, #12a4d9);
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.75rem 3.5rem 1.75rem;
+  background: linear-gradient(110deg, rgba(5, 9, 85, 0.92) 0%, rgba(41, 65, 217, 0.95) 42%, rgba(255, 77, 200, 0.92) 100%);
   color: white;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  box-shadow: 0 32px 72px -48px rgba(7, 22, 92, 0.75);
 }
 
-.app__header h1 {
+.app__brand {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.app__logo {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  object-fit: cover;
+  background: white;
+}
+
+.app__identity h1 {
   margin: 0 0 0.5rem;
-  font-size: 2rem;
+  font-size: 2.15rem;
+  letter-spacing: -0.01em;
+}
+
+.app__identity p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 620px;
 }
 
 .app__search input {
   padding: 0.75rem 1rem;
-  border-radius: 999px;
-  border: none;
-  width: 260px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 280px;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+  backdrop-filter: blur(12px);
+}
+
+.app__search input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .app__layout {
   display: grid;
   grid-template-columns: 280px 1fr 320px;
   gap: 1.5rem;
-  padding: 1.5rem 3rem 3rem;
+  padding: 2.25rem 3rem 3.5rem;
 }
 
 .app__nav {
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 24px 48px -32px rgba(10, 61, 98, 0.45);
+  background: var(--color-surface);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-raised);
+  border: 1px solid var(--color-border);
   height: fit-content;
 }
 
 .app__nav h2 {
   margin-top: 0;
-  font-size: 1.1rem;
-  color: #0a3d62;
+  font-size: 1.05rem;
+  color: var(--color-brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .app__nav ul {
@@ -60,22 +96,25 @@
 
 .app__nav button {
   width: 100%;
-  background: #f3f5f9;
-  border: none;
-  border-radius: 0.75rem;
-  padding: 0.75rem;
+  background: var(--color-surface-muted);
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  transition: background 0.2s ease, transform 0.2s ease;
+  gap: 0.35rem;
+  transition: background 0.2s ease, transform 0.2s ease, border 0.2s ease, color 0.2s ease;
+  color: var(--color-ink);
+  backdrop-filter: blur(6px);
 }
 
 .app__nav button:hover,
 .app__nav button.active {
-  background: #12a4d9;
+  background: linear-gradient(135deg, rgba(41, 65, 217, 0.9), rgba(19, 165, 255, 0.85));
   color: white;
-  transform: translateX(4px);
+  transform: translateX(6px);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .entity-name {
@@ -83,22 +122,32 @@
 }
 
 .entity-stage {
-  font-size: 0.85rem;
-  opacity: 0.85;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.app__nav button:hover .entity-stage,
+.app__nav button.active .entity-stage,
+.app__nav button:hover .entity-name,
+.app__nav button.active .entity-name {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .app__content {
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 24px 48px -32px rgba(10, 61, 98, 0.35);
+  background: var(--color-surface-strong);
+  border-radius: 1.75rem;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-raised);
+  border: 1px solid var(--color-border);
 }
 
 .summary-panel {
-  background: white;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 24px 48px -32px rgba(10, 61, 98, 0.25);
+  background: var(--color-surface);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-raised);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -107,7 +156,7 @@
 
 .summary-panel h2 {
   margin: 0;
-  color: #0a3d62;
+  color: var(--color-brand-primary);
 }
 
 .summary-panel dl {
@@ -119,10 +168,12 @@
 
 .summary-panel dt {
   font-weight: 600;
+  color: var(--color-ink);
 }
 
 .summary-panel dd {
   margin: 0;
+  color: var(--color-ink-soft);
 }
 
 .summary-panel ul {
@@ -139,6 +190,7 @@
 
 .entity-detail__header h2 {
   margin: 0 0 0.5rem;
+  color: var(--color-brand-primary);
 }
 
 .entity-detail__description {
@@ -148,7 +200,7 @@
 .entity-detail__stage,
 .entity-detail__relations {
   margin: 0;
-  color: #4a6073;
+  color: var(--color-ink-soft);
 }
 
 .entity-detail__stats {
@@ -161,42 +213,44 @@
 .entity-detail__stats .stat {
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
-  color: #4a6073;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 
 .entity-detail__stats .stat strong {
-  font-size: 1.4rem;
-  color: #0a3d62;
+  font-size: 1.45rem;
+  color: var(--color-brand-primary);
 }
 
 .button {
   background: transparent;
-  border: 1px solid #12a4d9;
+  border: 1px solid var(--color-brand-secondary);
   border-radius: 999px;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.45rem;
   font-weight: 600;
-  color: #0a3d62;
+  color: var(--color-brand-primary);
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
 
 .button--primary {
-  background: #12a4d9;
+  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
   color: white;
   border: none;
 }
 
 .button--primary:hover {
-  background: #0a3d62;
+  background: linear-gradient(135deg, rgba(255, 77, 200, 0.95), var(--color-brand-secondary));
 }
 
 .entity-detail__form {
   margin: 2rem 0;
-  background: #f8fbff;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  border: 1px solid rgba(18, 164, 217, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(42, 65, 217, 0.18);
+  backdrop-filter: blur(8px);
 }
 
 .record-form {
@@ -219,17 +273,17 @@
 
 .record-form__label {
   font-weight: 600;
-  color: #0a3d62;
+  color: var(--color-brand-primary);
 }
 
 .record-form__required {
-  color: #e74c3c;
+  color: var(--color-brand-highlight);
   margin-left: 0.25rem;
 }
 
 .record-form__unit {
   margin-left: 0.25rem;
-  color: #4a6073;
+  color: var(--color-ink-soft);
   font-size: 0.85em;
 }
 
@@ -238,8 +292,8 @@
 .record-form__field select {
   padding: 0.65rem;
   border-radius: 0.6rem;
-  border: 1px solid rgba(10, 61, 98, 0.2);
-  background: white;
+  border: 1px solid rgba(42, 65, 217, 0.18);
+  background: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
 }
 
@@ -249,7 +303,7 @@
 
 .record-form__help {
   font-size: 0.8rem;
-  color: #4a6073;
+  color: var(--color-ink-soft);
 }
 
 .record-form__actions {
@@ -265,24 +319,25 @@
 .entity-table table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
 }
 
 .entity-table th,
 .entity-table td {
-  border-bottom: 1px solid rgba(10, 61, 98, 0.1);
+  border-bottom: 1px solid rgba(42, 65, 217, 0.12);
   padding: 0.75rem;
   text-align: left;
   vertical-align: top;
 }
 
 .entity-table thead {
-  background: rgba(10, 61, 98, 0.05);
+  background: linear-gradient(135deg, rgba(41, 65, 217, 0.15), rgba(255, 77, 200, 0.15));
 }
 
 .entity-table__empty {
   font-style: italic;
-  color: #4a6073;
+  color: var(--color-ink-soft);
 }
 
 .entity-table__actions {
@@ -292,15 +347,22 @@
 
 .entity-table__actions button {
   background: transparent;
-  border: 1px solid rgba(10, 61, 98, 0.3);
-  border-radius: 0.5rem;
-  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(41, 65, 217, 0.32);
+  border-radius: 0.6rem;
+  padding: 0.45rem 0.85rem;
   font-size: 0.85rem;
+  color: var(--color-brand-primary);
+  transition: background 0.2s ease, border 0.2s ease;
 }
 
 .entity-table__actions .danger {
   color: #e74c3c;
   border-color: rgba(231, 76, 60, 0.4);
+}
+
+.entity-table__actions button:hover {
+  background: rgba(41, 65, 217, 0.12);
+  border-color: rgba(41, 65, 217, 0.5);
 }
 
 @media (max-width: 1200px) {

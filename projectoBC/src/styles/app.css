@@ -36,7 +36,7 @@
 }
 
 .app__nav {
-  background: white;
+  background: #12a4d9;
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 24px 48px -32px rgba(10, 61, 98, 0.45);
@@ -60,7 +60,7 @@
 
 .app__nav button {
   width: 100%;
-  background: #f3f5f9;
+  background: #0a3d62;
   border: none;
   border-radius: 0.75rem;
   padding: 0.75rem;
@@ -73,7 +73,7 @@
 
 .app__nav button:hover,
 .app__nav button.active {
-  background: #12a4d9;
+  background: #0a3d62;
   color: white;
   transform: translateX(4px);
 }
@@ -241,6 +241,8 @@
   border: 1px solid rgba(10, 61, 98, 0.2);
   background: white;
   font-size: 0.95rem;
+  color: black;
+
 }
 
 .record-form__field textarea {
@@ -288,6 +290,7 @@
 .entity-table__actions {
   display: flex;
   gap: 0.5rem;
+  
 }
 
 .entity-table__actions button {
@@ -296,6 +299,7 @@
   border-radius: 0.5rem;
   padding: 0.4rem 0.75rem;
   font-size: 0.85rem;
+  color:#0a3d62
 }
 
 .entity-table__actions .danger {

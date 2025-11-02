@@ -26,7 +26,15 @@ npm install
 npm run dev
 ```
 
-Accede a la aplicación en `http://localhost:5173`.
+El servidor de desarrollo abrirá automáticamente la aplicación en tu navegador. Si el puerto `5173` estuviera ocupado, Vite elegirá otro disponible y lo mostrará en la terminal.
+
+### Solución de problemas de acceso (`HTTP ERROR 404`)
+
+Si el navegador muestra un error 404 al intentar acceder a `localhost`, verifica lo siguiente:
+
+1. Confirma en la terminal que el servidor de Vite sigue ejecutándose y revisa la URL exacta que indica (por ejemplo `http://localhost:5174/`).
+2. Asegúrate de que no exista otro proceso usando el puerto 5173. Si es necesario, detén el proceso en conflicto o utiliza la URL alternativa que provea Vite.
+3. Si ejecutas el proyecto dentro de un contenedor o máquina virtual, utiliza la IP o el hostname expuestos por dicho entorno (gracias al parámetro `--host`).
 
 ## Build de producción
 

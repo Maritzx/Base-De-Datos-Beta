@@ -28,7 +28,7 @@ export default function App() {
     <div className="app">
       <header className="app__header">
         <div>
-          <h1>Base de datos integral Cannabis sativa L.</h1>
+          <h1>Bocannada Social Club - Planificación de cultivo</h1>
           <p>
             {databaseMetadata.description}
           </p>

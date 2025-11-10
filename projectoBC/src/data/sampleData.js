@@ -1,236 +1,215 @@
 export const sampleDataset = {
-  genetics: [
+  growRooms: [
     {
-      id: 'genetics-aurora',
-      identifier: 'GEN-001',
-      sourceType: 'Semilla',
-      geneticName: 'Aurora Borealis CBD',
-      breeder: 'North Labs',
-      chemotype: ['III (CBD alto)'],
-      certifications: 'Licencia sanitaria 2025-AB12',
-      storageConditions: '4 °C, HR 40 %, atmósfera modificada',
-      germinationRate: 95,
-      notes: 'Lote de alta uniformidad fenotípica'
+      id: 'room-flora',
+      roomCode: 'FLORA-3X3',
+      roomName: 'Sala de flora 3x3',
+      dimensions: '3 x 3',
+      areaM2: 9,
+      intendedStage: 'Floración',
+      lighting: ['LED'],
+      environmentalTargets: 'Temperatura 24-26 °C, HR 50-55 %, PPFD 800-900',
+      notes: 'Dos sistemas RDWC 8x1 funcionando en espejo'
+    },
+    {
+      id: 'room-veg',
+      roomCode: 'VEG-3X3',
+      roomName: 'Sala de vegetación',
+      dimensions: '3 x 3',
+      areaM2: 9,
+      intendedStage: 'Vegetación',
+      lighting: ['LED'],
+      environmentalTargets: 'Temperatura 24 °C, HR 65 %, PPFD 400-500',
+      notes: 'Transición semanal hacia flora'
+    },
+    {
+      id: 'room-carpa',
+      roomCode: 'CARPA-1X1',
+      roomName: 'Carpa madres y esquejes',
+      dimensions: '1 x 1',
+      areaM2: 1,
+      intendedStage: 'Propagación',
+      lighting: ['LED'],
+      environmentalTargets: 'Temperatura 24 °C, HR 70 %, PPFD 200',
+      notes: 'Incluye bandeja de madres y esquejera hidroponica 50 slots'
     }
   ],
-  propagationRooms: [
+  hydroponicSystems: [
     {
-      id: 'prop-room-1',
-      roomCode: 'PROP-01',
-      capacity: 1200,
-      lightingType: ['LED'],
-      hvac: 'Filtración HEPA, presión positiva, recambio 30 ACH',
-      sanitationProtocol: 'Ingreso por esclusa, ropa desechable, desinfección UV',
-      monitoringSystems: ['Sensores ambientales', 'IoT'],
-      notes: 'Control automatizado vinculado a BMS'
+      id: 'system-flora-a',
+      systemCode: 'FLORA-A',
+      systemName: 'RDWC Flora A',
+      roomId: 'room-flora',
+      systemType: 'RDWC',
+      bucketCount: 8,
+      plantCapacity: 8,
+      reservoirVolume: 20,
+      bucketVolume: 20,
+      sensors: ['EC', 'pH', 'Temperatura agua'],
+      notes: 'Línea izquierda, conectada a deshumificador'
+    },
+    {
+      id: 'system-flora-b',
+      systemCode: 'FLORA-B',
+      systemName: 'RDWC Flora B',
+      roomId: 'room-flora',
+      systemType: 'RDWC',
+      bucketCount: 8,
+      plantCapacity: 8,
+      reservoirVolume: 20,
+      bucketVolume: 20,
+      sensors: ['ORP', 'EC', 'pH', 'Temperatura agua'],
+      notes: 'Línea derecha, control automatizado de ORP'
+    },
+    {
+      id: 'system-veg',
+      systemCode: 'VEG-8X1',
+      systemName: 'RDWC Vegetación',
+      roomId: 'room-veg',
+      systemType: 'RDWC',
+      bucketCount: 8,
+      plantCapacity: 8,
+      reservoirVolume: 20,
+      bucketVolume: 20,
+      sensors: ['EC', 'pH'],
+      notes: 'Se rota semanalmente hacia flora'
+    },
+    {
+      id: 'system-madres',
+      systemCode: 'MAD-TRAY',
+      systemName: 'Bandeja madres 1x1',
+      roomId: 'room-carpa',
+      systemType: 'Bandeja propagación',
+      bucketCount: 12,
+      plantCapacity: 12,
+      reservoirVolume: 12,
+      bucketVolume: 1,
+      sensors: ['EC', 'pH'],
+      notes: 'Soporta madres en macetas de 3 L'
+    },
+    {
+      id: 'system-esquejera',
+      systemCode: 'CLON-50',
+      systemName: 'Esquejera 50 slots',
+      roomId: 'room-carpa',
+      systemType: 'Bandeja propagación',
+      bucketCount: 50,
+      plantCapacity: 50,
+      reservoirVolume: 15,
+      bucketVolume: 0.3,
+      sensors: ['Temperatura agua'],
+      notes: 'Burbujas con piedra difusora'
     }
   ],
-  batches: [
+  geneticCatalog: [
     {
-      id: 'batch-q1-2025',
-      batchCode: 'L-2025-Q1',
-      startDate: '2025-01-15',
-      originMaterial: 'genetics-aurora',
-      propagationRoom: 'prop-room-1',
-      productionScale: 'Industrial',
-      cultivationSystem: ['Invernadero', 'Coco'],
-      targetYield: 95,
-      targetCannabinoids: 'CBD 11-13 %, THC < 0.6 %, terpenos 1.5 %',
-      complianceRequirements: 'GACP, GMP, trazabilidad blockchain',
-      notes: 'Implementar sensores de VPD con alarmas SMS'
+      id: 'gen-cbd-01',
+      geneticCode: 'CBD-LOT-01',
+      strainName: 'CBD Therapy',
+      breeder: 'CBD Crew',
+      dominantProfile: 'CBD dominante',
+      thcPresence: 'Sí',
+      cbdPresence: 'Sí',
+      inaseRegistered: 'En trámite',
+      floweringWeeks: 9,
+      notes: 'Ideal para extracciones ricas en CBD'
+    },
+    {
+      id: 'gen-thc-01',
+      geneticCode: 'THC-LOT-01',
+      strainName: 'Tropicanna Poison',
+      breeder: 'Sweet Seeds',
+      dominantProfile: 'THC dominante',
+      thcPresence: 'Sí',
+      cbdPresence: 'No',
+      inaseRegistered: 'No',
+      floweringWeeks: 8.5,
+      notes: 'Fenotipo morado, requiere PPFD alto'
     }
   ],
-  plantRecords: [
+  cultivationBatches: [
     {
-      id: 'plant-0001',
-      plantTag: 'L-2025-Q1-P001',
-      batchCode: 'batch-q1-2025',
-      propagationType: 'Esqueje',
-      phenotypeNotes: 'Internodos cortos, vigor alto',
-      stage: 'Vegetativo',
-      healthStatus: 'Óptimo',
-      biomass: 320,
-      height: 68,
-      canopyDiameter: 45,
-      notes: 'Aplicado topping semana 4'
-    }
-  ],
-  taskCalendar: [
+      id: 'batch-flora-marzo',
+      batchCode: 'L-FLORA-2025-03',
+      geneticId: 'gen-thc-01',
+      startDate: '2025-03-01',
+      stage: 'Floración',
+      roomId: 'room-flora',
+      systemId: 'system-flora-a',
+      plantCount: 8,
+      targetFloweringWeeks: 8.5,
+      notes: 'Entró desde vegetación el 1/3 con 25 días de crecimiento'
+    },
     {
-      id: 'task-root-zone',
-      taskName: 'Calibración sensores de riego',
-      batchCode: 'batch-q1-2025',
-      responsible: 'Equipo fertirriego',
-      scheduledDate: '2025-02-01T08:00',
-      completedDate: '2025-02-01T11:00',
-      taskCategory: ['Mantenimiento', 'Riego'],
-      resourcesUsed: '2 técnicos, herramientas de calibración',
-      status: 'Completada',
-      verification: 'Registro fotográfico en SharePoint'
+      id: 'batch-veg-marzo',
+      batchCode: 'L-VEG-2025-03',
+      geneticId: 'gen-cbd-01',
+      startDate: '2025-02-15',
+      stage: 'Vegetación',
+      roomId: 'room-veg',
+      systemId: 'system-veg',
+      plantCount: 8,
+      targetFloweringWeeks: 9,
+      notes: 'Se traslada a flora tras selección de fenotipos'
     }
   ],
   environmentReadings: [
     {
-      id: 'env-001',
-      timestamp: '2025-02-10T09:00',
-      location: 'prop-room-1',
-      batchCode: 'batch-q1-2025',
-      temperature: 25.4,
-      humidity: 60,
-      vpd: 0.9,
-      co2: 850,
-      ppfd: 280,
-      photoperiod: 18,
-      notes: 'Alertas dentro de rangos óptimos'
-    }
-  ],
-  irrigationEvents: [
+      id: 'env-flora-a-01',
+      timestamp: '2025-03-05T09:00',
+      roomId: 'room-flora',
+      systemId: 'system-flora-a',
+      batchId: 'batch-flora-marzo',
+      orp: 320,
+      ec: 2.1,
+      ph: 5.8,
+      humidity: 52,
+      ppfd: 850,
+      ambientTemperature: 25.4,
+      waterTemperature: 20.8,
+      notes: 'Lectura dentro del rango ideal'
+    },
     {
-      id: 'irrig-001',
-      batchCode: 'batch-q1-2025',
-      eventDate: '2025-02-11T07:30',
-      volumeIn: 450,
-      ecIn: 2.2,
-      phIn: 5.8,
-      runoffPercent: 18,
-      ecOut: 2.5,
-      phOut: 6.1,
-      additives: 'Aminoácidos, Ca/Mg',
-      notes: 'Ajustar riego nocturno por baja EC'
-    }
-  ],
-  nutrientPlans: [
-    {
-      id: 'nut-plan-veg',
-      planName: 'Programa vegetativo intensivo',
-      batchCode: 'batch-q1-2025',
-      stage: 'Vegetativo tardío',
-      macroRatios: '3-1-2',
-      microNutrients: 'Fe, Zn, B en quelatos',
-      applicationFrequency: 'Riego diario con drenaje 20 %',
-      waterQuality: 'EC 0.2 mS/cm, ósmosis inversa',
-      notes: 'Aplicar silicio foliar semanal'
-    }
-  ],
-  substrateMetrics: [
-    {
-      id: 'substrate-001',
-      batchCode: 'batch-q1-2025',
-      samplingDate: '2025-02-09T14:00',
-      substrateType: 'Coco',
-      ec: 2.3,
+      id: 'env-veg-01',
+      timestamp: '2025-03-05T08:30',
+      roomId: 'room-veg',
+      systemId: 'system-veg',
+      batchId: 'batch-veg-marzo',
+      orp: 0,
+      ec: 1.4,
       ph: 5.9,
-      moisture: 55,
-      mediaTemperature: 21.5,
-      oxygenation: 7.8,
-      microbialActivity: 'Aplicado consorcio de Bacillus sp. semana 3'
+      humidity: 64,
+      ppfd: 420,
+      ambientTemperature: 24.2,
+      waterTemperature: 21.1,
+      notes: 'Ajustar ventilación para bajar HR en la tarde'
     }
   ],
-  pestIncidents: [
+  harvestRecords: [
     {
-      id: 'pest-001',
-      dateDetected: '2025-02-05T10:30',
-      batchCode: 'batch-q1-2025',
-      plantTag: 'plant-0001',
-      issueType: ['Plaga'],
-      organism: 'Trialeurodes vaporariorum',
-      severity: 'Baja',
-      treatment: 'Liberación de Encarsia formosa 3 ind/m²',
-      followUp: 'Monitorear con trampas cromáticas'
+      id: 'harvest-flora-enero',
+      harvestCode: 'HARV-FLORA-2025-01',
+      harvestDate: '2025-01-28',
+      batchId: 'batch-flora-marzo',
+      geneticId: 'gen-thc-01',
+      systemId: 'system-flora-b',
+      floweringWeeks: 8.3,
+      dryWeight: 2850,
+      trimNotes: 'Secado en 10 días, se guardó en frascos 2L'
     }
   ],
-  growthObservations: [
+  cycleComparisons: [
     {
-      id: 'growth-001',
-      observationDate: '2025-02-08T16:00',
-      plantTag: 'plant-0001',
-      growthRate: 2.4,
-      nodeCount: 12,
-      trainingTechniques: ['LST', 'Despuntes'],
-      aromaNotes: 'Perfil cítrico, limoneno dominante',
-      photos: 'https://intranet.example.com/fotos/plant-0001'
-    }
-  ],
-  labResults: [
-    {
-      id: 'lab-001',
-      sampleId: 'LAB-2025-31',
-      batchCode: 'batch-q1-2025',
-      analysisDate: '2025-03-28',
-      laboratory: 'QALabs, HPLC ISO17025',
-      thcPercent: 0.5,
-      cbdPercent: 12.4,
-      minorCannabinoids: 'CBG 0.4 %, CBC 0.2 %',
-      terpeneProfile: 'Limoneno 6 mg/g, Mirceno 3 mg/g, Beta-cariofileno 2.5 mg/g',
-      contaminants: 'Sin detecciones (< LOD)'
-    }
-  ],
-  harvests: [
-    {
-      id: 'harvest-001',
-      harvestCode: 'HARV-Q1-2025',
-      batchCode: 'batch-q1-2025',
-      harvestDate: '2025-03-20',
-      harvestTeam: 'Equipo postcosecha A',
-      freshWeight: 420,
-      trimStrategy: 'En húmedo',
-      wasteDisposal: 'Biomasa enviada a compost industrial',
-      notes: 'Implementar secado escalonado por densidad'
-    }
-  ],
-  dryingSessions: [
-    {
-      id: 'dry-001',
-      dryingCode: 'DRY-2025-01',
-      harvestCode: 'harvest-001',
-      dryRoom: 'SEC-01',
-      startDate: '2025-03-20T18:00',
-      endDate: '2025-03-29T09:00',
-      avgTemperature: 18.5,
-      avgHumidity: 55,
-      airFlow: 'Renovación 20 ACH, ventiladores oscilantes baja velocidad',
-      dryWeight: 86,
-      notes: 'Variación HR 4 %, sin presencia de mohos'
-    }
-  ],
-  curingSessions: [
-    {
-      id: 'curing-001',
-      curingCode: 'CUR-2025-01',
-      dryingCode: 'dry-001',
-      curingMethod: 'Frascos controlados',
-      startDate: '2025-03-29T12:00',
-      burpingFrequency: '3 veces/día primera semana, luego 1 vez/día',
-      aw: 0.58,
-      stabilizationTests: 'Lecturas HR 58-60 %, recuento microbiano < 10 CFU/g',
-      releaseDate: '2025-04-26',
-      notes: 'Terpenos estabilizados, aroma persistente'
-    }
-  ],
-  inventoryLots: [
-    {
-      id: 'inventory-001',
-      inventoryCode: 'INV-2025-01',
-      sourceCuring: 'curing-001',
-      productType: 'Flor seca',
-      finalWeight: 80,
-      packaging: 'Envase mylar 1 kg con válvula, atmósfera nitrógeno',
-      destination: 'Producto medicinal, lote clínico 12-2025',
-      complianceDocs: 'COA LAB-2025-31, guía sanitaria 2025-099'
-    }
-  ],
-  qualityAudits: [
-    {
-      id: 'audit-001',
-      auditName: 'Auditoría GMP interna Q1',
-      auditDate: '2025-03-05',
-      scope: 'Áreas de cultivo, postcosecha, documentación',
-      findings: 'Actualización pendiente de POE de limpieza',
-      actionPlans: 'Revisión POE 3.2 y capacitación personal',
-      status: 'En curso',
-      responsible: 'Coordinadora de calidad'
+      id: 'comparison-q1',
+      comparisonId: 'COMP-Q1-2025',
+      period: 'Floraciones Q1 2025',
+      geneticId: 'gen-thc-01',
+      systemId: 'system-flora-b',
+      batchSummary: 'HARV-FLORA-2025-01 vs L-FLORA-2025-03 (en curso)',
+      avgDryYield: 2820,
+      avgPPFD: 840,
+      avgEC: 2.05,
+      observations: 'Mantener PPFD > 800 y revisar ORP semanalmente'
     }
   ]
 };
-
-export const emptyDataset = {};
